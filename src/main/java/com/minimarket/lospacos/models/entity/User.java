@@ -1,5 +1,6 @@
 package com.minimarket.lospacos.models.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
-public class User {
+public class User  implements Serializable{
 
     // PRIMARY KEY
     @Id
