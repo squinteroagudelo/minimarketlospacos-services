@@ -12,4 +12,12 @@ public interface UserService {
     void update(int id, User user);
     
     void delete(int id);
+    
+        /**
+     * Login usuario
+     * @param user Objeto User
+     * @return User
+     * @throws java.lang.Exception
+     */
+    User login(User user) throws Exception;
 }
