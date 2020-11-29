@@ -26,24 +26,37 @@ public class ProductController {
     
     @GetMapping
     public List<Product> getAll(){
-        return productService.getAll();
+        return this.productService.getAll();
     }
     
+<<<<<<< Updated upstream
     @PostMapping
+=======
+    @PostMapping("/create")
+>>>>>>> Stashed changes
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Product product){
-        productService.create(product);
+        this.productService.create(product);
     }
     
+<<<<<<< Updated upstream
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
+=======
+    @PutMapping("/edit/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+>>>>>>> Stashed changes
     public void update(@PathVariable int id, @RequestBody Product product){
-        productService.update(id, product);
+        this.productService.update(id, product);
     }
     
+<<<<<<< Updated upstream
     @DeleteMapping("/{id}")
+=======
+    @DeleteMapping("/delete/{id}")
+>>>>>>> Stashed changes
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id){
-        productService.delete(id);
+        this.productService.delete(id);
     }
 }
