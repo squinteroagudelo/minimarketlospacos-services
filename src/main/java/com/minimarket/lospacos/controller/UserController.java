@@ -29,12 +29,13 @@ public class UserController {
         return userService.getAll();
     }
 
-  /*  @PostMapping
+    @PostMapping
     public void create(@RequestBody User user){
         userService.create(user);
-    }*/
+    }
     
     @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
     public void update(@PathVariable int id, @RequestBody User user){
         userService.update(id, user);
     }
