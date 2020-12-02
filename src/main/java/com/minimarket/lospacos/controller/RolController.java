@@ -4,6 +4,7 @@ import com.minimarket.lospacos.models.entity.Rol;
 import com.minimarket.lospacos.service.iface.RolService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,21 +26,24 @@ public class RolController {
     
     @GetMapping
     public List<Rol> getAll(){
-        return rolService.getAll();
+        return this.rolService.getAll();
     }
     
-    @PostMapping
+    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Rol rol){
-        rolService.create(rol);
+        this.rolService.create(rol);
     }
     
-    @PutMapping("/{id}")
+    @PutMapping("/edit/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable int id, @RequestBody Rol rol){
-        rolService.update(id, rol);
+        this.rolService.update(id, rol);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id){
-        rolService.delete(id);
+        this.rolService.delete(id);
     }
 }
